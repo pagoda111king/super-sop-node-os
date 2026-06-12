@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "project": "SOP工厂",
+  "name": "Super SOP Factory Node Memory Symbols",
+  "updated_at": "2026-06-12",
+  "purpose": "为 14 类节点建立高浓度记忆符号。每个节点都用符号、颜色、夸张图像、动作和一句公式压缩，服务记忆宫殿、快速推理、OpenMAIC 教案、项目台看板和知识对战。",
+  "design_thesis": "之前的配色是工程语义配色；这一版升级为记忆宫殿符号系统。颜色不是装饰，符号不是图标，动画不是炫技。它们共同把一个节点的使命、输入输出和风险压缩成一个可回忆的 mental object。",
+  "brain_science_basis": [
+    {
+      "principle": "method_of_loci",
+      "source": "/Users/tanghuiwen/工作/雷达/脑科学lab/research/02_memory_principles/memory_palace_method.md",
+      "rule": "把抽象节点绑定到固定空间位置。14 节点按一条宫殿路径排列，位置本身成为记忆锚。"
+    },
+    {
+      "principle": "tony_buzan_radiant_thinking",
+      "source": "/Users/tanghuiwen/工作/雷达/脑科学lab/research/01_classic_authors/tony_buzan_mind_map.md",
+      "rule": "从中心向外辐射；每个分支使用 1 个关键词、1 个图像、1 个颜色。"
+    },
+    {
+      "principle": "emotional_memory",
+      "source": "/Users/tanghuiwen/工作/雷达/脑科学lab/research/02_memory_principles/why_brain_loves_emotion.md",
+      "rule": "使用夸张、危险、幽默、反常、诱惑感和个人切身性增强记忆，但不使用露骨色情或不适合公开工作场景的图像。"
+    },
+    {
+      "principle": "dual_coding",
+      "source": "/Users/tanghuiwen/工作/雷达/脑科学lab/visual_principles/dual_coding_theory.md",
+      "rule": "每个节点同时给出文字、符号、颜色、空间位置和动作。"
+    },
+    {
+      "principle": "symbols_archetypes",
+      "source": "/Users/tanghuiwen/工作/雷达/脑科学lab/research/03_visual_design_for_memory/symbols_archetypes.md",
+      "rule": "优先用门、眼、筛、库、地图、岔路、剧场、闪电、实验瓶、天平、盾、桥、种子等跨文化易识别原型。"
+    }
+  ],
+  "memory_palace_path": [
+    "入口门",
+    "记忆库",
+    "望塔",
+    "净化池",
+    "石库",
+    "地图桌",
+    "岔路厅",
+    "小剧场",
+    "工坊",
+    "实验室",
+    "评分台",
+    "红色闸门",
+    "交付桥",
+    "种子地窖"
+  ],
+  "nodes": [
+    {
+      "id": "intake_node",
+      "index": 1,
+      "name": "Intake 输入捕获",
+      "rune": "⟐",
+      "symbol_name": "吞星之门",
+      "color": "#00A6B2",
+      "color_meaning": "青色表示新信号和入口水流。",
+      "mnemonic_image": "一扇青色大门张开，像嘴一样把一颗发光流星吞进去。",
+      "emotional_hook": "荒诞 + 惊奇",
+      "motion": "门张开，流星被吸入。",
+      "formula": "混沌信号 -> 任务对象",
+      "node_role": "把一句话、客户 brief、事件、文件或观察信号捕获为可处理任务。"
+    },
+    {
+      "id": "context_memory_node",
+      "index": 2,
+      "name": "Context / Memory 上下文记忆",
+      "rune": "▣",
+      "symbol_name": "蓝色记忆 vault",
+      "color": "#2563EB",
+      "color_meaning": "深蓝表示稳定、连续、可信上下文。",
+      "mnemonic_image": "一只巨大的蓝色保险柜把 AGENTS.md、历史 run 和长期规则锁在透明抽屉里。",
+      "emotional_hook": "安全感 + 厚重感",
+      "motion": "抽屉弹出，规则发光。",
+      "formula": "当前任务 + 历史规则 -> context pack",
+      "node_role": "加载本次任务需要的规则、历史、项目边界和记忆。"
+    },
+    {
+      "id": "radar_node",
+      "index": 3,
+      "name": "Radar 雷达检索",
+      "rune": "◉",
+      "symbol_name": "独眼雷达",
+      "color": "#0EA5E9",
+      "color_meaning": "亮蓝表示远距搜索和外部视野。",
+      "mnemonic_image": "一只独眼从高塔伸出，旋转光束扫到 GitHub、论文、视频和竞品。",
+      "emotional_hook": "侦查感 + 神秘感",
+      "motion": "光束旋转扫过证据点。",
+      "formula": "问题 -> 多源证据",
+      "node_role": "搜索足够多、可追溯、能支撑判断的资料。"
+    },
+    {
+      "id": "evidence_normalize_node",
+      "index": 4,
+      "name": "Evidence Normalize 证据标准化",
+      "rune": "▽",
+      "symbol_name": "水晶漏斗",
+      "color": "#14B8A6",
+      "color_meaning": "青绿表示清洗、净化和结构化。",
+      "mnemonic_image": "脏乱资料像泥水倒进漏斗，流出来变成整齐发光的 JSON 水晶块。",
+      "emotional_hook": "反差 + 清爽感",
+      "motion": "泥水下落，水晶块整齐排队。",
+      "formula": "杂乱证据 -> 统一 JSON",
+      "node_role": "把 evidence 转成统一字段、质量判断和下游推荐动作。"
+    },
+    {
+      "id": "data_modeling_node",
+      "index": 5,
+      "name": "Data Modeling 数据建模",
+      "rune": "▦",
+      "symbol_name": "石库矩阵",
+      "color": "#64748B",
+      "color_meaning": "灰蓝表示结构、存储、事实源。",
+      "mnemonic_image": "灰色石块自动堆成一座数据库神庙，每块石头刻着字段名。",
+      "emotional_hook": "秩序感 + 重量感",
+      "motion": "石块咔嗒咔嗒归位。",
+      "formula": "要查询什么 -> 设计怎么存",
+      "node_role": "决定数据放 JSON、SQLite、Base、Notion、Markdown 还是看板数据集。"
+    },
+    {
+      "id": "planning_node",
+      "index": 6,
+      "name": "Planning 计划拆解",
+      "rune": "⌖",
+      "symbol_name": "金色指南针",
+      "color": "#F2A900",
+      "color_meaning": "金色表示路线、目标和决策能量。",
+      "mnemonic_image": "一枚金色指南针刺穿地图，地图上的任务路线被点亮。",
+      "emotional_hook": "冒险感 + 方向感",
+      "motion": "指南针旋转后定向，路线亮起。",
+      "formula": "目标 -> 步骤 + 依赖",
+      "node_role": "把目标拆成计划、DAG、里程碑、验收点。"
+    },
+    {
+      "id": "routing_node",
+      "index": 7,
+      "name": "Routing 路由编排",
+      "rune": "⟡",
+      "symbol_name": "紫色岔路电闸",
+      "color": "#8B5CF6",
+      "color_meaning": "紫色表示选择、分叉、编排和策略切换。",
+      "mnemonic_image": "一个紫色电闸被猛地扳下，三条岔路同时亮起，子 agent 冲向不同方向。",
+      "emotional_hook": "瞬间选择 + 电流感",
+      "motion": "电闸下压，分支闪亮。",
+      "formula": "输入状态 -> 选择路径",
+      "node_role": "决定走哪条节点链，是否并行、handoff、subagent 或人工确认。"
+    },
+    {
+      "id": "learning_node",
+      "index": 8,
+      "name": "Learning 学习互动",
+      "rune": "✶",
+      "symbol_name": "粉色问题剧场",
+      "color": "#EC4899",
+      "color_meaning": "玫红表示注意力、互动、诱惑感和学习吸引力。",
+      "mnemonic_image": "一本粉色书在小剧场里啪地打开，问题、角色和测验像彩纸一样弹出来。",
+      "emotional_hook": "幽默 + 诱惑感 + 参与感",
+      "motion": "书本弹开，问题泡泡跳出。",
+      "formula": "陌生概念 -> 可学课堂",
+      "node_role": "用 OpenMAIC、概念笔记、互动和测验把新知识变成可理解内容。"
+    },
+    {
+      "id": "action_node",
+      "index": 9,
+      "name": "Action 行动执行",
+      "rune": "⚡",
+      "symbol_name": "绿色闪电锤",
+      "color": "#22C55E",
+      "color_meaning": "绿色表示真实执行、生命力和可推进状态。",
+      "mnemonic_image": "一把绿色闪电锤砸向现实按钮，代码、API 和飞书动作同时被点燃。",
+      "emotional_hook": "力量感 + 爽感",
+      "motion": "闪电下劈，现实按钮亮起。",
+      "formula": "计划 -> 真实动作",
+      "node_role": "调用工具、改文件、跑命令、操作浏览器或外部系统。"
+    },
+    {
+      "id": "test_node",
+      "index": 10,
+      "name": "Test 测试仿真",
+      "rune": "⚗",
+      "symbol_name": "冒泡实验瓶",
+      "color": "#84CC16",
+      "color_meaning": "酸绿表示实验、验证、真实反馈。",
+      "mnemonic_image": "一个实验瓶把假货炸成泡泡，真的东西沉到瓶底发光。",
+      "emotional_hook": "小爆炸 + 揭穿感",
+      "motion": "泡泡爆开，pass 亮起。",
+      "formula": "主张 -> 可复现证据",
+      "node_role": "验证产物、规则或 repo 是否真的可运行、可复现。"
+    },
+    {
+      "id": "score_node",
+      "index": 11,
+      "name": "Score 评分评估",
+      "rune": "◎",
+      "symbol_name": "橙色审判仪表盘",
+      "color": "#F97316",
+      "color_meaning": "橙色表示判断、权重、排名和行动倾向。",
+      "mnemonic_image": "一个橙色仪表盘像裁判一样转针，给每个方案盖上 adopt、revise 或 reject 印章。",
+      "emotional_hook": "竞争感 + 判决感",
+      "motion": "指针摆动，印章落下。",
+      "formula": "证据 + 测试 -> 分数 + verdict",
+      "node_role": "把证据、测试和目标转成可解释评分、排名和采用结论。"
+    },
+    {
+      "id": "check_node",
+      "index": 12,
+      "name": "Check 检查治理",
+      "rune": "⛨",
+      "symbol_name": "红色盾门",
+      "color": "#DC2626",
+      "color_meaning": "红色表示风险、阻断、治理和必须注意。",
+      "mnemonic_image": "一面红盾变成闸门，风险撞上去被弹回，只有合格产物能穿过去。",
+      "emotional_hook": "危险 + 阻断感",
+      "motion": "风险撞盾反弹，合格物通过。",
+      "formula": "产物 -> pass/fix/return",
+      "node_role": "做闸门判断、权限检查、风险治理和失败返回。"
+    },
+    {
+      "id": "handoff_node",
+      "index": 13,
+      "name": "Handoff 交付交接",
+      "rune": "⇄",
+      "symbol_name": "铜桥包裹",
+      "color": "#B7791F",
+      "color_meaning": "铜色表示交接、责任、真实世界接口。",
+      "mnemonic_image": "一座铜桥横跨两岸，一个发光包裹从左手递到右手，包裹上贴着验收标准。",
+      "emotional_hook": "责任感 + 完成感",
+      "motion": "包裹过桥，验收标签亮起。",
+      "formula": "artifact -> 人/系统/agent",
+      "node_role": "把产物、状态和责任交给用户、客户、项目台、飞书或下一个 agent。"
+    },
+    {
+      "id": "sediment_node",
+      "index": 14,
+      "name": "Sediment 沉淀规则学习",
+      "rune": "✺",
+      "symbol_name": "地层种子",
+      "color": "#059669",
+      "color_meaning": "深绿表示复利、生长、长期资产。",
+      "mnemonic_image": "一颗绿色种子扎进地层，根系把 SOP、题卡、规则和失败案例吸成一棵资产树。",
+      "emotional_hook": "生长感 + 宝藏感",
+      "motion": "种子下沉，根系扩散，资产树发芽。",
+      "formula": "通过检查的经验 -> 复利资产",
+      "node_role": "把真正可复用的规则、模式、题卡、脚本、失败案例写回复利库。"
+    }
+  ],
+  "usage_rules": [
+    "记忆入口优先看 rune，不先读标题。",
+    "每个 rune 必须绑定一个夸张图像和一个动作。",
+    "颜色可以灵活，但同一节点在同一系统内不能反复换色。",
+    "公开和客户场景不使用露骨色情图像；把强刺激转译成诱惑感、危险感、荒诞感和身体动作。",
+    "每张图都必须能回答: 这个节点吃什么、吐什么、为什么存在。"
+  ]
+}
+

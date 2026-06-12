@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "project": "SOP工厂",
+  "name": "Super SOP Factory Node Visual System",
+  "updated_at": "2026-06-12",
+  "purpose": "给 6 层 14 类节点建立稳定颜色、图形隐喻和动画语义，供项目台节点看板、OpenMAIC 教案、知识对战和客户表达复用。",
+  "brain_science_basis": [
+    {
+      "principle": "color_coding",
+      "source": "/Users/tanghuiwen/工作/雷达/脑科学lab/research/03_visual_design_for_memory/color_coding_psychology.md",
+      "rule": "颜色必须有语义且全系统一致，不能作为装饰。"
+    },
+    {
+      "principle": "cognitive_load",
+      "source": "/Users/tanghuiwen/工作/雷达/脑科学lab/visual_principles/cognitive_load_theory.md",
+      "rule": "每屏默认突出 3-4 个 chunk，其余弱化或分阶段揭示。"
+    },
+    {
+      "principle": "dual_coding",
+      "source": "/Users/tanghuiwen/工作/雷达/脑科学lab/visual_principles/dual_coding_theory.md",
+      "rule": "节点必须同时有文字、颜色、形状或图标隐喻。"
+    },
+    {
+      "principle": "animation_for_learning",
+      "source": "/Users/tanghuiwen/工作/雷达/脑科学lab/research/03_visual_design_for_memory/animation_for_learning.md",
+      "rule": "动画只用于流程、因果链和状态流转。"
+    },
+    {
+      "principle": "infographic_data_ink",
+      "source": "/Users/tanghuiwen/工作/雷达/脑科学lab/research/03_visual_design_for_memory/infographic_principles.md",
+      "rule": "视觉元素必须承载信息，减少无意义装饰。"
+    }
+  ],
+  "macro_layers": [
+    {
+      "id": "L1",
+      "name": "输入捕获层",
+      "role": "把混沌输入变成任务对象",
+      "nodes": ["intake_node"]
+    },
+    {
+      "id": "L2",
+      "name": "上下文与记忆层",
+      "role": "加载任务相关历史、约束和长期记忆",
+      "nodes": ["context_memory_node"]
+    },
+    {
+      "id": "L3",
+      "name": "认知编排层",
+      "role": "查找、整理、建模、计划、路由和学习",
+      "nodes": ["radar_node", "evidence_normalize_node", "data_modeling_node", "planning_node", "routing_node", "learning_node"]
+    },
+    {
+      "id": "L4",
+      "name": "行动执行层",
+      "role": "调用工具和系统完成真实动作",
+      "nodes": ["action_node"]
+    },
+    {
+      "id": "L5",
+      "name": "验证治理层",
+      "role": "测试、评分、检查、权限和风险治理",
+      "nodes": ["test_node", "score_node", "check_node"]
+    },
+    {
+      "id": "L6",
+      "name": "沉淀资产层",
+      "role": "交付、复盘和复利资产回写",
+      "nodes": ["handoff_node", "sediment_node"]
+    }
+  ],
+  "node_visuals": [
+    {
+      "id": "intake_node",
+      "index": 1,
+      "layer": "L1",
+      "name": "Intake 输入捕获",
+      "color": "#0E7490",
+      "tint": "#ECFEFF",
+      "icon": "signal",
+      "shape": "rounded gate",
+      "semantic": "入口、信号、开始",
+      "use_for": ["需求入口", "客户 brief", "事件触发"]
+    },
+    {
+      "id": "context_memory_node",
+      "index": 2,
+      "layer": "L2",
+      "name": "Context / Memory 上下文记忆",
+      "color": "#2563EB",
+      "tint": "#EFF6FF",
+      "icon": "vault",
+      "shape": "stacked archive",
+      "semantic": "记忆、规则、项目上下文",
+      "use_for": ["AGENTS.md", "项目规则", "长期记忆"]
+    },
+    {
+      "id": "radar_node",
+      "index": 3,
+      "layer": "L3",
+      "name": "Radar 雷达检索",
+      "color": "#0284C7",
+      "tint": "#F0F9FF",
+      "icon": "radar",
+      "shape": "sweep circle",
+      "semantic": "搜索、发现、外部证据",
+      "use_for": ["网页搜索", "GitHub 搜索", "视频搜索", "内部库检索"]
+    },
+    {
+      "id": "evidence_normalize_node",
+      "index": 4,
+      "layer": "L3",
+      "name": "Evidence Normalize 证据标准化",
+      "color": "#14B8A6",
+      "tint": "#F0FDFA",
+      "icon": "sieve",
+      "shape": "filter funnel",
+      "semantic": "清洗、归一、结构化",
+      "use_for": ["证据 JSON", "质量报告", "推荐动作"]
+    },
+    {
+      "id": "data_modeling_node",
+      "index": 5,
+      "layer": "L3",
+      "name": "Data Modeling 数据建模",
+      "color": "#475569",
+      "tint": "#F8FAFC",
+      "icon": "database",
+      "shape": "cylinder",
+      "semantic": "存储、schema、事实源",
+      "use_for": ["SQLite", "Base", "JSONL", "Notion", "看板数据"]
+    },
+    {
+      "id": "planning_node",
+      "index": 6,
+      "layer": "L3",
+      "name": "Planning 计划拆解",
+      "color": "#F59E0B",
+      "tint": "#FFFBEB",
+      "icon": "map",
+      "shape": "folded plan",
+      "semantic": "路线、依赖、里程碑",
+      "use_for": ["计划", "DAG", "任务拆解"]
+    },
+    {
+      "id": "routing_node",
+      "index": 7,
+      "layer": "L3",
+      "name": "Routing 路由编排",
+      "color": "#7C3AED",
+      "tint": "#F5F3FF",
+      "icon": "switch",
+      "shape": "branch node",
+      "semantic": "选择路径、并行、handoff",
+      "use_for": ["workflow pattern", "subagent", "条件路由"]
+    },
+    {
+      "id": "learning_node",
+      "index": 8,
+      "layer": "L3",
+      "name": "Learning 学习互动",
+      "color": "#DB2777",
+      "tint": "#FDF2F8",
+      "icon": "classroom",
+      "shape": "open book",
+      "semantic": "学习、互动、课堂、练习",
+      "use_for": ["OpenMAIC", "概念笔记", "讲解", "互动课堂"]
+    },
+    {
+      "id": "action_node",
+      "index": 9,
+      "layer": "L4",
+      "name": "Action 行动执行",
+      "color": "#16A34A",
+      "tint": "#F0FDF4",
+      "icon": "bolt",
+      "shape": "run button",
+      "semantic": "执行、调用工具、产生真实变化",
+      "use_for": ["改代码", "跑命令", "调用 API", "操作飞书"]
+    },
+    {
+      "id": "test_node",
+      "index": 10,
+      "layer": "L5",
+      "name": "Test 测试仿真",
+      "color": "#65A30D",
+      "tint": "#F7FEE7",
+      "icon": "lab",
+      "shape": "beaker",
+      "semantic": "真实测试、可复现性能",
+      "use_for": ["命令测试", "浏览器测试", "fixture", "manual observed"]
+    },
+    {
+      "id": "score_node",
+      "index": 11,
+      "layer": "L5",
+      "name": "Score 评分评估",
+      "color": "#F97316",
+      "tint": "#FFF7ED",
+      "icon": "gauge",
+      "shape": "dial",
+      "semantic": "评分、排序、采用判断",
+      "use_for": ["scorecard", "adopt/revise/reject", "权重"]
+    },
+    {
+      "id": "check_node",
+      "index": 12,
+      "layer": "L5",
+      "name": "Check 检查治理",
+      "color": "#DC2626",
+      "tint": "#FEF2F2",
+      "icon": "shield",
+      "shape": "gate",
+      "semantic": "闸门、风险、权限、合规",
+      "use_for": ["pass/fix/return", "权限检查", "风险治理"]
+    },
+    {
+      "id": "handoff_node",
+      "index": 13,
+      "layer": "L6",
+      "name": "Handoff 交付交接",
+      "color": "#A16207",
+      "tint": "#FEFCE8",
+      "icon": "bridge",
+      "shape": "package bridge",
+      "semantic": "交付、转交、客户可见",
+      "use_for": ["delivery pack", "agent-to-agent handoff", "客户验收"]
+    },
+    {
+      "id": "sediment_node",
+      "index": 14,
+      "layer": "L6",
+      "name": "Sediment 沉淀规则学习",
+      "color": "#047857",
+      "tint": "#ECFDF5",
+      "icon": "seed",
+      "shape": "archive seed",
+      "semantic": "复利、资产、规则、长期学习",
+      "use_for": ["SOP", "pattern card", "rule learning", "知识对战卡"]
+    }
+  ],
+  "animation_rules": {
+    "allowed": ["flow pulse", "node activation", "risk gate flash", "sediment growth"],
+    "not_allowed": ["decorative flying text", "unrelated background motion", "constant high saturation flashing"],
+    "default_cycle_seconds": 14,
+    "reduced_motion": "show static graph and disable pulse"
+  }
+}
+

@@ -1,0 +1,450 @@
+{
+  "schema_version": 1,
+  "project": "SOP工厂",
+  "last_updated": "2026-06-11",
+  "purpose": "定义“如果所有事情都用节点构造”时的节点类型分类法；用于 SOP 工厂、项目台节点看板、知识对战和后续 Agent 编排。",
+  "summary": {
+    "short_answer": "平台级建议分为 14 个节点大类；落地到当前 SOP 工厂时，先映射到 17 个节点原语和 8 个 P0 复利核心节点。",
+    "node_definition": "节点 = 有独立使命、输入契约、工作区、工具权限、输出 schema、检查规则、交接方式和沉淀路径的小型可验收机器。",
+    "macro_layers": [
+      "输入捕获层",
+      "上下文与记忆层",
+      "认知编排层",
+      "行动执行层",
+      "验证治理层",
+      "沉淀资产层"
+    ]
+  },
+  "external_references": [
+    {
+      "name": "OpenAI Codex",
+      "url": "https://developers.openai.com/codex",
+      "used_for": "参考 coding agent 如何读代码、改文件、运行命令、审查代码，并适配现有项目结构。"
+    },
+    {
+      "name": "OpenAI Codex - AGENTS.md",
+      "url": "https://developers.openai.com/codex/guides/agents-md",
+      "used_for": "参考项目级指令如何作为节点运行前必须读取的契约。"
+    },
+    {
+      "name": "OpenAI Codex - Cloud Environments",
+      "url": "https://developers.openai.com/codex/cloud/environments",
+      "used_for": "参考云端任务如何配置依赖、工具、环境变量和隔离执行环境。"
+    },
+    {
+      "name": "OpenAI Agent Skills",
+      "url": "https://developers.openai.com/codex/skills",
+      "used_for": "参考技能包如何封装 instructions、resources、scripts，形成可复用节点能力。"
+    },
+    {
+      "name": "OpenAI Agents SDK",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "used_for": "参考 agents、handoffs、guardrails、human review、tracing、state 和 observability。"
+    },
+    {
+      "name": "Anthropic - Building Effective Agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "used_for": "参考 prompt chaining、routing、parallelization、orchestrator-workers、evaluator-optimizer 等工作流模式。"
+    },
+    {
+      "name": "Claude Code - Hooks",
+      "url": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "used_for": "参考 PreToolUse、PostToolUse、session lifecycle 等运行时治理节点。"
+    },
+    {
+      "name": "Claude Code - Features Overview",
+      "url": "https://code.claude.com/docs/en/features-overview",
+      "used_for": "参考 skills、subagents、hooks、MCP、plugins 的工程化边界。"
+    },
+    {
+      "name": "OpenClaw",
+      "url": "https://openclaw.ai/",
+      "used_for": "参考从聊天入口触发真实动作、跨平台接入和个人 Agent 运行模式。"
+    },
+    {
+      "name": "OpenClaw ClawHub",
+      "url": "https://docs.openclaw.ai/clawhub",
+      "used_for": "参考 skills/plugins 注册、安装、版本、信任和分发机制。"
+    },
+    {
+      "name": "OpenMAIC OpenClaw Integration",
+      "url": "https://github.com/THU-MAIC/OpenMAIC",
+      "used_for": "参考 OpenClaw skill 如何把学习课堂生成接入 Feishu、Slack、Telegram 等入口。"
+    },
+    {
+      "name": "Google Agent Development Kit",
+      "url": "https://adk.dev/",
+      "used_for": "参考企业级 agent 开发、调试、部署、评估和多语言框架。"
+    },
+    {
+      "name": "Google Agent2Agent Protocol",
+      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+      "used_for": "参考跨框架、跨企业系统的 agent 间通信和协作协议。"
+    },
+    {
+      "name": "Feishu Aily",
+      "url": "https://www.feishu.cn/content/3d5z9ttt",
+      "used_for": "参考中国企业客户工作现场中的 AI 技能编排、知识数据处理、效果调优、持续运营和多渠道发布。"
+    },
+    {
+      "name": "Feishu Aily Custom Agents",
+      "url": "https://www.feishu.cn/content/article/7631864469689240764",
+      "used_for": "参考团队/组织共享智能体、记忆隔离、中心化凭证、发布记录、diff 对比和回滚。"
+    },
+    {
+      "name": "Coze Studio",
+      "url": "https://github.com/coze-dev/coze-studio",
+      "used_for": "参考中国低代码 agent builder、prompt/RAG/plugin/workflow、knowledge base、database、OpenAPI/Chat SDK。"
+    },
+    {
+      "name": "Coze Loop",
+      "url": "https://github.com/coze-dev/coze-loop",
+      "used_for": "参考 AgentOps 的开发、调试、评估、监控、trace 和 prompt 版本管理。"
+    },
+    {
+      "name": "DingTalk DEAP",
+      "url": "https://www.dingtalk.com/qidian/page-egVeIEnr.html",
+      "used_for": "参考中国企业协作入口中的模型、数据、技能、应用、安全权限、评测和观测一体化。"
+    },
+    {
+      "name": "Alibaba Cloud Bailian / Model Studio",
+      "url": "https://help.aliyun.com/zh/model-studio/what-is-model-studio",
+      "used_for": "参考中国企业级模型平台、OpenAI/Anthropic 兼容 API、智能体应用、知识库和插件体系。"
+    },
+    {
+      "name": "Alibaba AgentScope",
+      "url": "https://github.com/agentscope-ai/agentscope",
+      "used_for": "参考生产级多智能体框架、事件总线、权限系统、多租户多会话、沙箱、middleware、MCP/A2A 和 OTel。"
+    },
+    {
+      "name": "Microsoft Agent Framework",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "used_for": "参考 AutoGen 与 Semantic Kernel 汇合后的企业级状态管理、类型安全、遥测和多 agent 编排。"
+    },
+    {
+      "name": "Microsoft Magentic-One",
+      "url": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
+      "used_for": "参考 Orchestrator 带多个专家 agent 规划、跟踪进度、失败后重规划的模式。"
+    },
+    {
+      "name": "LangGraph",
+      "url": "https://docs.langchain.com/oss/python/langgraph/overview",
+      "used_for": "参考 durable execution、persistence、human-in-the-loop、streaming 和 tracing。"
+    },
+    {
+      "name": "Stanford Generative Agents",
+      "url": "https://arxiv.org/abs/2304.03442",
+      "used_for": "参考 observation、memory、reflection、planning 组成长期行为模拟的 agent 架构。"
+    },
+    {
+      "name": "Cognition Devin",
+      "url": "https://devin.ai/",
+      "used_for": "参考面向工程团队的并行云端 coding agents、知识沉淀和多 repo 协作产品化。"
+    }
+  ],
+  "reference_landscape": {
+    "tier_1_must_study": [
+      {
+        "source": "OpenAI Codex + Agents SDK",
+        "learn": ["project instructions", "skills", "cloud/local environments", "tool loop", "handoffs", "guardrails", "tracing"],
+        "maps_to_node_types": ["context_memory_node_type", "action_implementation_node_type", "test_simulation_node_type", "check_gate_governance_node_type", "sediment_rule_learning_node_type"]
+      },
+      {
+        "source": "Anthropic Claude Code + Building Effective Agents",
+        "learn": ["workflow patterns", "subagents", "hooks", "MCP", "parallelization", "evaluator-optimizer"],
+        "maps_to_node_types": ["routing_orchestration_node_type", "check_gate_governance_node_type", "score_evaluation_node_type"]
+      },
+      {
+        "source": "Google ADK + A2A",
+        "learn": ["agent development kit", "debug and deploy", "agent interoperability", "enterprise communication protocol"],
+        "maps_to_node_types": ["routing_orchestration_node_type", "handoff_delivery_node_type", "data_modeling_storage_node_type"]
+      },
+      {
+        "source": "Microsoft Agent Framework + Magentic-One",
+        "learn": ["orchestrator-worker teams", "state management", "telemetry", "re-planning after errors"],
+        "maps_to_node_types": ["planning_decomposition_node_type", "routing_orchestration_node_type", "test_simulation_node_type"]
+      },
+      {
+        "source": "LangGraph",
+        "learn": ["durable execution", "persistence", "human-in-the-loop interrupts", "graph runtime"],
+        "maps_to_node_types": ["routing_orchestration_node_type", "context_memory_node_type", "check_gate_governance_node_type"]
+      }
+    ],
+    "tier_2_product_and_research": [
+      {
+        "source": "OpenClaw + OpenMAIC",
+        "learn": ["chat entry", "skills/plugins", "multi-agent learning classroom", "distribution through skill hubs"],
+        "maps_to_node_types": ["learning_interaction_node_type", "handoff_delivery_node_type"]
+      },
+      {
+        "source": "Cognition Devin",
+        "learn": ["parallel cloud coding agents", "tribal knowledge capture", "multi-repo engineering workflows"],
+        "maps_to_node_types": ["action_implementation_node_type", "sediment_rule_learning_node_type"]
+      },
+      {
+        "source": "Stanford Generative Agents",
+        "learn": ["observation", "memory", "reflection", "planning", "emergent social simulation"],
+        "maps_to_node_types": ["context_memory_node_type", "planning_decomposition_node_type", "learning_interaction_node_type"]
+      }
+    ],
+    "study_rule": "不追热点名词；只吸收能转成节点契约、运行时机制、评估方法、复利资产的部分。"
+  },
+  "study_optimization": {
+    "core_change": "从“按公司阅读资料”升级为“对每个参考体系都跑同一条研究节点链”。",
+    "study_node_chain": [
+      {
+        "node": "reference_radar_node",
+        "purpose": "只收集官方 docs、论文、repo、真实产品说明和可测试 demo。",
+        "output": "reference_evidence_batch"
+      },
+      {
+        "node": "pattern_extract_node",
+        "purpose": "抽取项目指令、运行时、编排、工具、记忆、评估、治理、交付等模式。",
+        "output": "pattern_cards"
+      },
+      {
+        "node": "node_mapping_node",
+        "purpose": "把外部模式映射到 14 个节点大类和 8 个 P0 复利节点。",
+        "output": "node_mapping_matrix"
+      },
+      {
+        "node": "prototype_test_node",
+        "purpose": "每个高价值模式至少做一个最小可运行样例或本地 dry-run。",
+        "output": "prototype_test_report"
+      },
+      {
+        "node": "adoption_score_node",
+        "purpose": "按可迁移性、工程真实度、可测试性、复利价值、当前贴合度、复杂度风险评分。",
+        "output": "adoption_score_report"
+      },
+      {
+        "node": "rule_sediment_node",
+        "purpose": "只把通过测试和评分的模式写回节点标准、技能、记忆卡或项目台。",
+        "output": "accepted_rules_and_assets"
+      }
+    ],
+    "study_lenses": [
+      "instruction_contract",
+      "workspace_and_environment",
+      "tool_and_capability_interface",
+      "state_memory_persistence",
+      "orchestration_and_handoff",
+      "guardrail_permission_approval",
+      "evaluation_observability_tracing",
+      "human_experience_and_entrypoint",
+      "cost_latency_failure_recovery",
+      "asset_sedimentation_and_reuse"
+    ],
+    "adoption_scorecard": [
+      {
+        "criterion": "transferability",
+        "question": "能否转成我们的节点契约，而不是只能在对方平台里用？"
+      },
+      {
+        "criterion": "engineering_reality",
+        "question": "是否有真实运行环境、工具、状态、日志和失败处理？"
+      },
+      {
+        "criterion": "testability",
+        "question": "能否在本地用 demo、fixture、命令或浏览器 smoke test 验证？"
+      },
+      {
+        "criterion": "compound_value",
+        "question": "是否能沉淀成 SOP、skill、数据库、题卡、规则或复用模块？"
+      },
+      {
+        "criterion": "current_fit",
+        "question": "是否能直接加强 SOP 工厂、项目台、OpenMAIC 学习管线或知识对战？"
+      },
+      {
+        "criterion": "complexity_risk",
+        "question": "引入后会不会制造抽象过度、依赖过重、调试困难或安全风险？"
+      }
+    ],
+    "optimized_priority": {
+      "track_a_runtime_core": ["OpenAI Codex + Agents SDK", "Anthropic Claude Code + Building Effective Agents", "LangGraph"],
+      "track_b_enterprise_interop": ["Microsoft Agent Framework + Copilot Studio + Microsoft 365 Connectors", "Alibaba Bailian + DingTalk DEAP + AgentScope", "Google A2A as protocol reference"],
+      "track_c_product_research_inspiration": ["OpenClaw + OpenMAIC", "Cognition Devin", "Stanford Generative Agents"]
+    },
+    "enterprise_interop_anchor_pair": {
+      "united_states": {
+        "anchor": "Microsoft",
+        "stack": ["Microsoft Agent Framework", "Copilot Studio", "Microsoft 365 Copilot connectors", "Entra ID", "Power Platform", "Azure AI Foundry"],
+        "why": "美国企业互操作样本中，Microsoft 覆盖身份、权限、办公协作、企业数据连接器、低代码工作流、agent framework、审计治理和遥测最完整。",
+        "learn_first": ["state management", "type-safe workflows", "M365/Graph connectors", "governance/DLP/audit", "human-in-the-loop", "telemetry"]
+      },
+      "china": {
+        "anchor": "Feishu / Lark for Chinese enterprise service delivery",
+        "stack": ["Feishu Aily", "Feishu Open Platform", "Feishu Base", "Feishu Docs/Wiki", "Feishu Approval/Task/Project", "Feishu IM/Bot"],
+        "why": "做中国企业客户时，飞书是更直接的工作现场：IM、文档、表格、审批、项目、知识库和机器人都在同一协作入口内，适合作为客户交付前台。",
+        "learn_first": ["AI skill orchestration", "knowledge/data processing", "enterprise permissions", "Base/Docs/Wiki data layer", "approval/task/project actions", "bot/IM entry", "publishing/diff/rollback"]
+      },
+      "china_comparison_stack": [
+        {
+          "role": "low_code_agent_builder",
+          "anchor": "Coze Studio + Coze Loop",
+          "why": "适合作为中国低代码 agent builder 和 AgentOps 样本，学习 workflow、plugin、knowledge、database、evaluation、trace。"
+        },
+        {
+          "role": "long_task_runtime",
+          "anchor": "DeerFlow",
+          "why": "适合作为长任务、深度研究、sub-agents、sandbox、skills、filesystem 的技术专项参考。"
+        },
+        {
+          "role": "cloud_model_enterprise_platform",
+          "anchor": "Alibaba Bailian + DingTalk DEAP + AgentScope",
+          "why": "适合作为中国云、模型、企业平台和多租户 agent service 对照样本。"
+        }
+      ],
+      "note": "Google A2A 仍作为跨厂商 agent 通信协议学习；Enterprise Interop 的美国锚点选 Microsoft，中国企业服务主入口选 Feishu/Lark，Alibaba 作为中国云和模型平台对照。"
+    },
+    "adoption_gate": "只有当一个外部模式通过 prototype_test_node 和 adoption_score_node，并能明确写入某个节点类型/P0 节点/skill/项目台功能时，才进入 SOP 工厂长期标准。"
+  },
+  "node_type_families": [
+    {
+      "type_id": "intake_node_type",
+      "name": "输入捕获节点",
+      "purpose": "把人、系统、文件、消息、网页、会议、视频里的原始输入稳定接住。",
+      "examples": ["intake_node", "concept_note_intake", "meeting_intake", "project_brief_intake"],
+      "core_outputs": ["raw_input_ref", "input_type", "initial_constraints", "verbatim_snapshot"],
+      "related_current_primitives": ["intake_node"]
+    },
+    {
+      "type_id": "context_memory_node_type",
+      "name": "上下文与记忆节点",
+      "purpose": "决定读哪些记忆、剪掉哪些历史、创建哪个隔离工作区。",
+      "examples": ["memory_load_node", "session_pruning_node", "workspace_isolation_node", "ring_card_loader"],
+      "core_outputs": ["loaded_context_refs", "pruned_summary", "workspace_path", "context_policy"],
+      "related_current_primitives": ["router_node", "sediment_node"]
+    },
+    {
+      "type_id": "radar_retrieval_node_type",
+      "name": "雷达与检索节点",
+      "purpose": "主动搜索足够多的内外部证据，而不是凭感觉判断。",
+      "examples": ["project_radar", "github_radar", "video_radar", "internal_radar", "failure_radar"],
+      "core_outputs": ["evidence_items", "source_quality_summary", "empty_result_reason"],
+      "related_current_primitives": ["radar_node", "module_research_node"]
+    },
+    {
+      "type_id": "normalize_structuring_node_type",
+      "name": "证据归一化节点",
+      "purpose": "把非结构化材料转成统一 JSON/schema/Pydantic 可校验对象。",
+      "examples": ["evidence_normalize_node", "schema_extract_node", "entity_resolution_node", "tagging_node"],
+      "core_outputs": ["normalized_records", "quality_report", "module_tags", "node_tags"],
+      "related_current_primitives": ["evidence_normalize_node"]
+    },
+    {
+      "type_id": "data_modeling_storage_node_type",
+      "name": "数据建模与数据库节点",
+      "purpose": "决定数据进入哪一层：临时 JSONL、SQLite、Notion 可视层、永久库或多层双写。",
+      "examples": ["data_modeling_node", "database_node", "storage_adapter_node", "migration_node", "indexing_node"],
+      "core_outputs": ["storage_plan", "schema", "indexes", "dedupe_key", "lifecycle"],
+      "related_current_primitives": ["data_modeling_node"]
+    },
+    {
+      "type_id": "planning_decomposition_node_type",
+      "name": "规划与拆解节点",
+      "purpose": "把模糊目标拆成模块、组件、atomic、DAG 和可验收里程碑。",
+      "examples": ["decompose_node", "planning_node", "pdr_node", "goal_refinement_node"],
+      "core_outputs": ["node_dag", "modules", "milestones", "risks"],
+      "related_current_primitives": ["decompose_node", "planning_node"]
+    },
+    {
+      "type_id": "routing_orchestration_node_type",
+      "name": "路由与编排节点",
+      "purpose": "决定下一步走哪条链、派给哪个 Agent、串行/并行/worker/评估循环如何运行。",
+      "examples": ["router_node", "orchestrator_node", "parallel_dispatch_node", "agent_team_node", "workflow_state_machine_node"],
+      "core_outputs": ["route", "dispatch_plan", "parallel_branches", "join_strategy"],
+      "related_current_primitives": ["router_node", "decision_gate_node"]
+    },
+    {
+      "type_id": "learning_interaction_node_type",
+      "name": "学习与互动节点",
+      "purpose": "把不懂的概念变成课堂、对话、测验、迁移题、角色对战，而不是直接进入复习。",
+      "examples": ["openmaic_learning_node", "teacher_node", "challenger_node", "judge_node", "concept_enrichment_node"],
+      "core_outputs": ["learning_prompt", "concept_map", "misconceptions", "practice_items"],
+      "related_current_primitives": ["intake_node", "score_node", "sediment_node"]
+    },
+    {
+      "type_id": "action_implementation_node_type",
+      "name": "行动与实施节点",
+      "purpose": "调用真实工具、写代码、改文件、发消息、生成内容、执行自动化。",
+      "examples": ["implementation_node", "tool_calling_node", "code_edit_node", "browser_action_node", "message_action_node"],
+      "core_outputs": ["changed_files", "execution_log", "tool_results", "evidence_refs"],
+      "related_current_primitives": ["implementation_node"]
+    },
+    {
+      "type_id": "test_simulation_node_type",
+      "name": "测试与仿真节点",
+      "purpose": "用可复现测试验证真实性能，避免“看起来合理”。",
+      "examples": ["test_node", "repo_clone_test_node", "browser_smoke_node", "benchmark_node", "simulation_node"],
+      "core_outputs": ["test_report", "metrics", "pass_rate", "return_to_node"],
+      "related_current_primitives": ["test_node"]
+    },
+    {
+      "type_id": "score_evaluation_node_type",
+      "name": "评分与评估节点",
+      "purpose": "定义真正好用，并把证据和测试结果转成可解释分数、排名和采用结论。",
+      "examples": ["score_node", "rubric_node", "llm_judge_node", "comparative_eval_node", "usefulness_eval_node"],
+      "core_outputs": ["useful_definition", "score_report", "ranking", "verdict"],
+      "related_current_primitives": ["score_node"]
+    },
+    {
+      "type_id": "check_gate_governance_node_type",
+      "name": "检查、闸门与治理节点",
+      "purpose": "在关键点阻断危险操作、要求人工确认、判定修/退/停/过。",
+      "examples": ["check_node", "decision_gate_node", "hook_node", "approval_node", "risk_gate_node"],
+      "core_outputs": ["check_result", "severity", "fix_required", "return_to_node", "approval_status"],
+      "related_current_primitives": ["check_node", "decision_gate_node", "inversion_node"]
+    },
+    {
+      "type_id": "handoff_delivery_node_type",
+      "name": "交付与移交节点",
+      "purpose": "把产物交给用户、客户、下游系统或下一个 Agent，并保留验收信号。",
+      "examples": ["handoff_node", "delivery_package_node", "release_note_node", "user_acceptance_node"],
+      "core_outputs": ["handoff_package", "recipient", "acceptance_signal", "next_owner"],
+      "related_current_primitives": ["handoff_node"]
+    },
+    {
+      "type_id": "sediment_rule_learning_node_type",
+      "name": "沉淀与规则学习节点",
+      "purpose": "把高价值结果、失败模式、规则、模板、题卡和复用资产写回复利系统。",
+      "examples": ["sediment_node", "rule_learning_node", "memory_card_node", "knowledge_battle_card_node", "sop_update_node"],
+      "core_outputs": ["created_assets", "accepted_rules", "rejected_rules", "next_use_case", "reuse_counter_updates"],
+      "related_current_primitives": ["rule_learning_node", "sediment_node"]
+    }
+  ],
+  "anthropic_pattern_mapping": {
+    "prompt_chaining": ["planning_decomposition_node_type", "action_implementation_node_type", "check_gate_governance_node_type"],
+    "routing": ["routing_orchestration_node_type", "context_memory_node_type"],
+    "parallelization": ["radar_retrieval_node_type", "test_simulation_node_type", "score_evaluation_node_type"],
+    "orchestrator_workers": ["routing_orchestration_node_type", "planning_decomposition_node_type", "handoff_delivery_node_type"],
+    "evaluator_optimizer": ["score_evaluation_node_type", "check_gate_governance_node_type", "sediment_rule_learning_node_type"],
+    "subagents": ["context_memory_node_type", "routing_orchestration_node_type", "radar_retrieval_node_type", "test_simulation_node_type"],
+    "hooks": ["check_gate_governance_node_type", "action_implementation_node_type"],
+    "mcp_tools_plugins": ["action_implementation_node_type", "radar_retrieval_node_type", "data_modeling_storage_node_type"]
+  },
+  "openclaw_pattern_mapping": {
+    "chat_entry": ["intake_node_type", "routing_orchestration_node_type"],
+    "skill": ["learning_interaction_node_type", "action_implementation_node_type", "sediment_rule_learning_node_type"],
+    "plugin": ["action_implementation_node_type", "data_modeling_storage_node_type", "check_gate_governance_node_type"],
+    "clawhub_registry": ["radar_retrieval_node_type", "score_evaluation_node_type", "sediment_rule_learning_node_type"],
+    "confirmation_first": ["check_gate_governance_node_type", "handoff_delivery_node_type"],
+    "openmaic_skill": ["learning_interaction_node_type", "handoff_delivery_node_type", "sediment_rule_learning_node_type"]
+  },
+  "sop_factory_landing": {
+    "current_machine_primitives": "workflow/node-primitives.json",
+    "current_p0_standards": "workflow/p0-node-standards.json",
+    "p0_core_nodes": [
+      "radar_node",
+      "evidence_normalize_node",
+      "data_modeling_node",
+      "test_node",
+      "score_node",
+      "check_node",
+      "rule_learning_node",
+      "sediment_node"
+    ],
+    "next_recommendation": "先不新增 100 个节点名；每个新节点必须先归入 14 大类之一，再决定是否真的需要成为新原语。"
+  }
+}

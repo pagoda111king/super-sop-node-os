@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>超级 SOP 工厂 · 14 节点记忆符号宫殿</title>
+  <style>
+    :root {
+      --bg: #f6f5f1;
+      --ink: #161a22;
+      --muted: #697386;
+      --line: rgba(28, 35, 49, .13);
+      --paper: rgba(255, 255, 255, .78);
+      --shadow: 0 18px 46px rgba(31, 41, 55, .12);
+      --radius: 8px;
+      --cycle: 28s;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(255,255,255,.72) 0 18%, transparent 35%),
+        linear-gradient(135deg, #fbfaf7 0%, #eef4f2 42%, #f4eff7 100%);
+    }
+
+    main {
+      max-width: 1420px;
+      margin: 0 auto;
+      padding: 26px 28px 34px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      line-height: 1.12;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      max-width: 930px;
+      margin: 9px 0 0;
+      color: #536073;
+      font-size: .98rem;
+      line-height: 1.7;
+    }
+
+    .badges {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 10px;
+    }
+
+    .badge {
+      min-width: 90px;
+      padding: 10px 12px;
+      border: 1px solid #dfe5ee;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.72);
+      text-align: center;
+    }
+
+    .badge strong {
+      display: block;
+      font-size: 1.08rem;
+    }
+
+    .badge span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: .74rem;
+    }
+
+    .palace {
+      position: relative;
+      min-height: 820px;
+      border: 1px solid #dde4ed;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.72), rgba(255,255,255,.28)),
+        var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .palace::before {
+      content: "";
+      position: absolute;
+      inset: 108px 132px 110px;
+      border: 2px solid rgba(24, 32, 47, .14);
+      border-radius: 46% 54% 52% 48%;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,.88) 0 25%, transparent 26%),
+        repeating-radial-gradient(circle at 50% 50%, transparent 0 58px, rgba(24,32,47,.035) 59px 60px);
+    }
+
+    .palace::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 230px;
+      height: 230px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, #ffffff 0 42%, #f8fafc 43% 68%, transparent 69%),
+        conic-gradient(from 0deg, #00a6b2, #2563eb, #0ea5e9, #14b8a6, #64748b, #f2a900, #8b5cf6, #ec4899, #22c55e, #84cc16, #f97316, #dc2626, #b7791f, #059669, #00a6b2);
+      box-shadow: 0 18px 50px rgba(31,41,55,.12);
+      opacity: .98;
+    }
+
+    .core {
+      position: absolute;
+      z-index: 4;
+      left: 50%;
+      top: 50%;
+      width: 190px;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .core .seal {
+      margin: 0 auto 8px;
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #161a22;
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.44rem;
+      box-shadow: 0 10px 22px rgba(22,26,34,.22);
+    }
+
+    .core b {
+      display: block;
+      font-size: .96rem;
+      line-height: 1.25;
+    }
+
+    .core span {
+      display: block;
+      margin-top: 5px;
+      color: #677386;
+      font-size: .74rem;
+      line-height: 1.45;
+    }
+
+    .runner {
+      position: absolute;
+      z-index: 5;
+      left: 50%;
+      top: 50%;
+      width: 18px;
+      height: 18px;
+      margin: -9px 0 0 -9px;
+      border-radius: 50%;
+      background: #161a22;
+      box-shadow: 0 0 0 8px rgba(22,26,34,.08);
+      animation: orbit var(--cycle) linear infinite;
+    }
+
+    @keyframes orbit {
+      from { transform: rotate(0deg) translateX(420px) rotate(0deg); }
+      to { transform: rotate(360deg) translateX(420px) rotate(-360deg); }
+    }
+
+    .node {
+      --c: #64748b;
+      --t: #f8fafc;
+      position: absolute;
+      z-index: 3;
+      width: 174px;
+      min-height: 154px;
+      padding: 10px 10px 11px;
+      border: 1px solid color-mix(in srgb, var(--c) 34%, white);
+      border-left: 4px solid var(--c);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.72)),
+        var(--t);
+      box-shadow: 0 12px 30px rgba(31,41,55,.10);
+      transform: translate(-50%, -50%);
+      animation: pulse var(--cycle) linear infinite;
+      animation-delay: var(--d);
+    }
+
+    @keyframes pulse {
+      0%, 5.4% {
+        transform: translate(-50%, -50%) scale(1.045);
+        box-shadow: 0 20px 44px color-mix(in srgb, var(--c) 24%, transparent);
+      }
+      5.6%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 12px 30px rgba(31,41,55,.10);
+      }
+    }
+
+    .node-head {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 9px;
+      align-items: center;
+      margin-bottom: 7px;
+    }
+
+    .glyph {
+      position: relative;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.92), transparent 36%),
+        color-mix(in srgb, var(--c) 18%, white);
+      border: 1px solid color-mix(in srgb, var(--c) 46%, white);
+      color: var(--c);
+      font-size: 1.78rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .glyph::after {
+      content: attr(data-index);
+      position: absolute;
+      right: -5px;
+      bottom: -5px;
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--c) 45%, white);
+      border-radius: 50%;
+      background: #fff;
+      color: var(--c);
+      font-size: .66rem;
+      font-weight: 860;
+    }
+
+    .node h2 {
+      margin: 0;
+      font-size: .86rem;
+      line-height: 1.22;
+      font-weight: 820;
+    }
+
+    .symbol-name {
+      margin-top: 4px;
+      color: var(--c);
+      font-size: .72rem;
+      line-height: 1.25;
+      font-weight: 760;
+    }
+
+    .image {
+      min-height: 40px;
+      margin: 0 0 7px;
+      color: #3f4a5b;
+      font-size: .7rem;
+      line-height: 1.38;
+    }
+
+    .formula {
+      display: inline-block;
+      max-width: 100%;
+      padding: 5px 7px;
+      border-radius: 7px;
+      background: color-mix(in srgb, var(--c) 12%, white);
+      color: color-mix(in srgb, var(--c) 86%, #111827);
+      font-size: .65rem;
+      line-height: 1.28;
+      font-weight: 780;
+    }
+
+    .hook {
+      display: block;
+      margin-top: 7px;
+      color: #7a8496;
+      font-size: .66rem;
+      line-height: 1.25;
+    }
+
+    .n1 { --c:#00a6b2; --t:#ecfeff; --d:0s; left:50%; top:12%; }
+    .n2 { --c:#2563eb; --t:#eff6ff; --d:-26s; left:72%; top:17%; }
+    .n3 { --c:#0ea5e9; --t:#f0f9ff; --d:-24s; left:85%; top:29%; }
+    .n4 { --c:#14b8a6; --t:#f0fdfa; --d:-22s; left:88%; top:50%; }
+    .n5 { --c:#64748b; --t:#f8fafc; --d:-20s; left:85%; top:71%; }
+    .n6 { --c:#f2a900; --t:#fffbeb; --d:-18s; left:72%; top:83%; }
+    .n7 { --c:#8b5cf6; --t:#f5f3ff; --d:-16s; left:50%; top:88%; }
+    .n8 { --c:#ec4899; --t:#fdf2f8; --d:-14s; left:28%; top:83%; }
+    .n9 { --c:#22c55e; --t:#f0fdf4; --d:-12s; left:15%; top:71%; }
+    .n10 { --c:#84cc16; --t:#f7fee7; --d:-10s; left:12%; top:50%; }
+    .n11 { --c:#f97316; --t:#fff7ed; --d:-8s; left:15%; top:29%; }
+    .n12 { --c:#dc2626; --t:#fef2f2; --d:-6s; left:28%; top:17%; }
+    .n13 { --c:#b7791f; --t:#fefce8; --d:-4s; left:39%; top:50%; width:176px; }
+    .n14 { --c:#059669; --t:#ecfdf5; --d:-2s; left:61%; top:50%; width:176px; }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .principle {
+      padding: 12px 14px;
+      border: 1px solid #dfe5ee;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.72);
+      font-size: .78rem;
+      line-height: 1.5;
+      color: #445066;
+    }
+
+    .principle b {
+      display: block;
+      margin-bottom: 4px;
+      color: #161a22;
+      font-size: .84rem;
+    }
+
+    @media (max-width: 1180px) {
+      header { grid-template-columns: 1fr; }
+      .palace {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        min-height: auto;
+        padding: 14px;
+      }
+      .palace::before,
+      .palace::after,
+      .core,
+      .runner { display: none; }
+      .node {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: auto;
+        min-height: 156px;
+        transform: none;
+        animation: none;
+      }
+      .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 720px) {
+      main { padding: 18px 14px 28px; }
+      h1 { font-size: 1.5rem; }
+      .badges { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .palace { grid-template-columns: 1fr; }
+      .principles { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .runner { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>超级 SOP 工厂 · 14 节点记忆符号宫殿</h1>
+        <p class="subtitle">这一版不是配色看板，而是节点象形文字。每个节点都被压缩成一个符号、一幅夸张图像、一个动作和一句公式，像数学符号一样快速触发整套含义。</p>
+      </div>
+      <div class="badges">
+        <div class="badge"><strong>14</strong><span>节点符号</span></div>
+        <div class="badge"><strong>1</strong><span>宫殿路径</span></div>
+        <div class="badge"><strong>5</strong><span>记忆触发</span></div>
+      </div>
+    </header>
+
+    <section class="palace" aria-label="14 节点记忆宫殿">
+      <div class="runner" aria-hidden="true"></div>
+      <div class="core">
+        <div class="seal">Σ</div>
+        <b>SOP 工厂</b>
+        <span>把混沌工作压缩成可执行、可检查、可沉淀的节点语言</span>
+      </div>
+
+      <article class="node n1">
+        <div class="node-head"><div class="glyph" data-index="01">⟐</div><div><h2>Intake 输入</h2><div class="symbol-name">吞星之门</div></div></div>
+        <p class="image">青色大门像嘴一样吞下一颗发光流星。</p>
+        <span class="formula">混沌信号 -> 任务对象</span>
+        <span class="hook">荒诞 + 惊奇</span>
+      </article>
+
+      <article class="node n2">
+        <div class="node-head"><div class="glyph" data-index="02">▣</div><div><h2>Context 记忆</h2><div class="symbol-name">蓝色记忆 vault</div></div></div>
+        <p class="image">保险柜抽屉弹开，AGENTS.md 和历史 run 发光。</p>
+        <span class="formula">任务 + 历史规则 -> context pack</span>
+        <span class="hook">安全感 + 厚重感</span>
+      </article>
+
+      <article class="node n3">
+        <div class="node-head"><div class="glyph" data-index="03">◉</div><div><h2>Radar 雷达</h2><div class="symbol-name">独眼雷达</div></div></div>
+        <p class="image">独眼从高塔伸出，旋转光束扫到 repo、论文和视频。</p>
+        <span class="formula">问题 -> 多源证据</span>
+        <span class="hook">侦查感 + 神秘感</span>
+      </article>
+
+      <article class="node n4">
+        <div class="node-head"><div class="glyph" data-index="04">▽</div><div><h2>Normalize 标准化</h2><div class="symbol-name">水晶漏斗</div></div></div>
+        <p class="image">泥水资料倒进漏斗，流出整齐 JSON 水晶块。</p>
+        <span class="formula">杂乱证据 -> 统一 JSON</span>
+        <span class="hook">反差 + 清爽感</span>
+      </article>
+
+      <article class="node n5">
+        <div class="node-head"><div class="glyph" data-index="05">▦</div><div><h2>Data 建模</h2><div class="symbol-name">石库矩阵</div></div></div>
+        <p class="image">灰色石块咔嗒归位，堆成刻着字段名的数据库神庙。</p>
+        <span class="formula">要查询什么 -> 设计怎么存</span>
+        <span class="hook">秩序感 + 重量感</span>
+      </article>
+
+      <article class="node n6">
+        <div class="node-head"><div class="glyph" data-index="06">⌖</div><div><h2>Planning 计划</h2><div class="symbol-name">金色指南针</div></div></div>
+        <p class="image">指南针刺穿地图，任务路线像金线一样亮起。</p>
+        <span class="formula">目标 -> 步骤 + 依赖</span>
+        <span class="hook">冒险感 + 方向感</span>
+      </article>
+
+      <article class="node n7">
+        <div class="node-head"><div class="glyph" data-index="07">⟡</div><div><h2>Routing 路由</h2><div class="symbol-name">紫色岔路电闸</div></div></div>
+        <p class="image">电闸被猛地扳下，三条岔路同时发亮。</p>
+        <span class="formula">输入状态 -> 选择路径</span>
+        <span class="hook">瞬间选择 + 电流感</span>
+      </article>
+
+      <article class="node n8">
+        <div class="node-head"><div class="glyph" data-index="08">✶</div><div><h2>Learning 学习</h2><div class="symbol-name">粉色问题剧场</div></div></div>
+        <p class="image">粉色书在剧场里啪地打开，问题和角色像彩纸弹出。</p>
+        <span class="formula">陌生概念 -> 可学课堂</span>
+        <span class="hook">幽默 + 诱惑感 + 参与感</span>
+      </article>
+
+      <article class="node n9">
+        <div class="node-head"><div class="glyph" data-index="09">⚡</div><div><h2>Action 执行</h2><div class="symbol-name">绿色闪电锤</div></div></div>
+        <p class="image">闪电锤砸向现实按钮，代码、API 和飞书动作被点燃。</p>
+        <span class="formula">计划 -> 真实动作</span>
+        <span class="hook">力量感 + 爽感</span>
+      </article>
+
+      <article class="node n10">
+        <div class="node-head"><div class="glyph" data-index="10">⚗</div><div><h2>Test 测试</h2><div class="symbol-name">冒泡实验瓶</div></div></div>
+        <p class="image">实验瓶把假货炸成泡泡，真的东西沉到底部发光。</p>
+        <span class="formula">主张 -> 可复现证据</span>
+        <span class="hook">小爆炸 + 揭穿感</span>
+      </article>
+
+      <article class="node n11">
+        <div class="node-head"><div class="glyph" data-index="11">◎</div><div><h2>Score 评分</h2><div class="symbol-name">橙色审判仪表盘</div></div></div>
+        <p class="image">仪表盘像裁判转针，给方案盖 adopt / revise / reject。</p>
+        <span class="formula">证据 + 测试 -> 分数 + verdict</span>
+        <span class="hook">竞争感 + 判决感</span>
+      </article>
+
+      <article class="node n12">
+        <div class="node-head"><div class="glyph" data-index="12">⛨</div><div><h2>Check 检查</h2><div class="symbol-name">红色盾门</div></div></div>
+        <p class="image">红盾变成闸门，风险撞上去被弹回。</p>
+        <span class="formula">产物 -> pass/fix/return</span>
+        <span class="hook">危险 + 阻断感</span>
+      </article>
+
+      <article class="node n13">
+        <div class="node-head"><div class="glyph" data-index="13">⇄</div><div><h2>Handoff 交接</h2><div class="symbol-name">铜桥包裹</div></div></div>
+        <p class="image">发光包裹跨过铜桥，标签上写着验收标准。</p>
+        <span class="formula">artifact -> 人/系统/agent</span>
+        <span class="hook">责任感 + 完成感</span>
+      </article>
+
+      <article class="node n14">
+        <div class="node-head"><div class="glyph" data-index="14">✺</div><div><h2>Sediment 沉淀</h2><div class="symbol-name">地层种子</div></div></div>
+        <p class="image">绿色种子扎进地层，根系吸收 SOP、题卡、规则。</p>
+        <span class="formula">经验 -> 复利资产</span>
+        <span class="hook">生长感 + 宝藏感</span>
+      </article>
+    </section>
+
+    <section class="principles" aria-label="设计原则">
+      <div class="principle"><b>记忆宫殿</b>14 个节点按固定路径排列，位置本身就是记忆锚。</div>
+      <div class="principle"><b>东尼博赞</b>每个节点只留 1 个关键词、1 个符号、1 个颜色、1 个夸张图像。</div>
+      <div class="principle"><b>情绪加权</b>用荒诞、危险、幽默、诱惑感和身体动作增强记忆，不做露骨图像。</div>
+      <div class="principle"><b>数学符号化</b>先认 rune，再读文字；符号负责快速推理，文字负责校准含义。</div>
+    </section>
+  </main>
+</body>
+</html>
