@@ -22,6 +22,7 @@
 |---|---|---|
 | `1.0.0` | `k97c0ztdacwbxqr9gjc1c9ere188g70e` | Initial public release: 6-layer 14-node agent workflow system. |
 | `1.0.1` | `k97a80pf9zr8nnkmnm42h3ev8d88hm01` | Add Node Era positioning and marketplace introduction. |
+| `1.0.2` | `k97bns47qagam7abd13edt2yjs88hgex` | Add architecture reference radar and company pattern mapping. |
 
 ## Publish Command
 
