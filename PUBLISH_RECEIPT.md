@@ -11,11 +11,17 @@
 
 - Slug: `super-sop-node-os`
 - Owner: `pagoda111king`
-- Version: `1.0.0`
+- Latest version: `1.0.1`
 - License on ClawHub: `MIT-0`
-- Publish ID: `k97c0ztdacwbxqr9gjc1c9ere188g70e`
 - Moderation verdict: `clean`
 - Search check: `clawhub search super-sop-node-os --limit 5`
+
+### Version History
+
+| Version | Publish ID | Changelog |
+|---|---|---|
+| `1.0.0` | `k97c0ztdacwbxqr9gjc1c9ere188g70e` | Initial public release: 6-layer 14-node agent workflow system. |
+| `1.0.1` | `k97a80pf9zr8nnkmnm42h3ev8d88hm01` | Add Node Era positioning and marketplace introduction. |
 
 ## Publish Command
 
