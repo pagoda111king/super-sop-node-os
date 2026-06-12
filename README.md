@@ -1,4 +1,4 @@
-# Super SOP Node OS
+# Super SOP Node OS · Node Era Protocol
 
 Turn complex agent work into a reusable 6-layer, 14-node operating system for Codex, Claude Code, OpenClaw, and other coding agents.
 
@@ -9,6 +9,20 @@ Super SOP Node OS is not a static checklist. It is a portable work protocol that
 ```text
 Super SOP Node OS = 6 layers + 14 node classes + run artifacts + Test/Score/Check/Sediment loop
 ```
+
+## From Chat Era To Node Era
+
+The first era of modern AI was the large-model conversation era: humans asked, models answered, and intelligence mostly lived inside a chat box.
+
+The next era was the agent era: models started using tools, editing files, calling APIs, browsing, coding, and acting across real environments.
+
+Then came OpenClaw, Hermes-style always-on agents, and other personal or enterprise agent systems: AI became less like a single answer and more like a persistent operator that can hold context, coordinate tools, and keep working.
+
+The next unavoidable step is the node era.
+
+In the node era, everything valuable in AI work should be rebuilt as nodes: search nodes, evidence nodes, data nodes, planning nodes, action nodes, test nodes, score nodes, check nodes, handoff nodes, and sediment nodes. A node is stronger than a prompt because it has a stable role, inputs, outputs, checks, memory, and a way to compose with other nodes.
+
+This is the direction Super SOP Node OS takes: not "one more agent prompt", but a node-based operating system for repeatable AI work.
 
 ## Why This Exists
 
@@ -216,9 +230,9 @@ Publish command:
 ```bash
 clawhub publish /absolute/path/to/super-sop-node-os/codex-skill/super-sop-node-os \
   --slug super-sop-node-os \
-  --name "Super SOP Node OS" \
-  --version 1.0.0 \
-  --changelog "Initial public release: 6-layer 14-node agent workflow system." \
+  --name "Super SOP Node OS: Node Era Protocol" \
+  --version 1.0.1 \
+  --changelog "Add Node Era positioning and marketplace introduction." \
   --tags latest,agent-workflow,sop,codex,claude-code,openclaw
 ```
 
@@ -297,7 +311,7 @@ The goal is not to copy any one framework. The goal is to make their best patter
 
 ## Status
 
-Current release: `1.0.0`
+Current release: `1.0.1`
 
 This is an early public package. The core protocol, loader files, skill package, schemas, and scaffold script are ready. Future work will add richer adapters, a visual run dashboard, and more automated evaluation.
 

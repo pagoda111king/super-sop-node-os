@@ -1,8 +1,8 @@
-# ClawHub Listing · Super SOP Node OS
+# ClawHub Listing · Super SOP Node OS · Node Era Protocol
 
 ## Name
 
-Super SOP Node OS
+Super SOP Node OS: Node Era Protocol
 
 ## Slug
 
@@ -10,13 +10,17 @@ Super SOP Node OS
 
 ## Short Description
 
-Nodeize complex agent work into a 6-layer, 14-node SOP system with Radar, Normalize, Data Modeling, Planning, Action, Test, Score, Check, Handoff, and Sediment loops.
+Nodeize complex agent work for the next AI era: a 6-layer, 14-node SOP system with Radar, Normalize, Data, Planning, Action, Test, Score, Check, Handoff, and Sediment loops.
 
 ## Marketplace Description
 
 Super SOP Node OS turns messy projects, research tasks, learning goals, and delivery workflows into explicit node runs.
 
 Instead of letting an agent answer everything in one long response, this skill makes the agent choose the smallest useful node chain, produce durable artifacts, verify the result, and write reusable lessons back into the project.
+
+The thesis is simple: AI is moving from the large-model chat era, to the agent era, to OpenClaw / Hermes-style always-on agent systems, and now toward the node era. In the node era, valuable AI work is no longer just a prompt or a chat. It becomes composable nodes with stable roles, inputs, outputs, checks, and memory.
+
+This skill is a practical node-era protocol. It helps agents rebuild work as reusable node chains instead of one-off conversations.
 
 It is useful for:
 
@@ -54,9 +58,9 @@ latest, agent-workflow, sop, codex, claude-code, openclaw
 ```bash
 clawhub publish codex-skill/super-sop-node-os \
   --slug super-sop-node-os \
-  --name "Super SOP Node OS" \
-  --version 1.0.0 \
-  --changelog "Initial public release: 6-layer 14-node agent workflow system." \
+  --name "Super SOP Node OS: Node Era Protocol" \
+  --version 1.0.1 \
+  --changelog "Add Node Era positioning and marketplace introduction." \
   --tags latest,agent-workflow,sop,codex,claude-code,openclaw
 ```
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 - 2026-06-12
+
+- Added Node Era positioning.
+- Expanded README and ClawHub listing to explain the shift from chat-era AI to agent-era AI to node-based AI work.
+- Updated skill summary and title to emphasize the node-era protocol.
+
 ## 1.0.0 - 2026-06-12
 
 - Initial public release.

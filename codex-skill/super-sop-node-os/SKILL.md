@@ -1,7 +1,7 @@
 ---
 name: super-sop-node-os
-description: Nodeize complex agent work into a 6-layer, 14-node SOP system with Radar, Normalize, Test, Score, Check, Handoff, and Sediment loops.
-version: 1.0.0
+description: Nodeize complex AI work for the node era: a 6-layer, 14-node SOP system with Radar, Normalize, Test, Score, Check, Handoff, and Sediment loops.
+version: 1.0.1
 metadata:
   openclaw:
     homepage: https://github.com/pagoda111king/super-sop-node-os
@@ -10,9 +10,15 @@ metadata:
         - python3
 ---
 
-# Super SOP Node OS
+# Super SOP Node OS · Node Era Protocol
 
 Use this skill to turn complex work into node runs for projects, research, learning, implementation, enterprise delivery, and reusable SOP design.
+
+## Node Era Thesis
+
+AI work is moving from the large-model chat era, to the agent era, to OpenClaw / Hermes-style always-on systems, and now toward the node era.
+
+In the node era, valuable work should be rebuilt as composable nodes. A node has a stable role, inputs, outputs, checks, memory, and a way to connect with other nodes. This makes AI work more reliable, reusable, testable, and improvable than one-off prompts.
 
 ## Default Behavior
 

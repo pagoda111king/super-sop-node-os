@@ -72,9 +72,9 @@ clawhub --cli-version
 clawhub whoami
 clawhub publish /absolute/path/to/super-sop-node-os/codex-skill/super-sop-node-os \
   --slug super-sop-node-os \
-  --name "Super SOP Node OS" \
-  --version 1.0.0 \
-  --changelog "Initial public release: 6-layer 14-node agent workflow system." \
+  --name "Super SOP Node OS: Node Era Protocol" \
+  --version 1.0.1 \
+  --changelog "Add Node Era positioning and marketplace introduction." \
   --tags latest,agent-workflow,sop,codex,claude-code,openclaw
 ```
 
