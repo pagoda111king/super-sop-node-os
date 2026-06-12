@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.1-proposal",
+  "status": "proposal",
+  "created_at": "2026-06-12",
+  "summary": "Keep 14 core nodes, rebalance the 6 layers, add 4 cross-cutting rails, and recognize 2 optional compound nodes.",
+  "layer_model": [
+    {
+      "id": "L1",
+      "name": "Signal & Intent",
+      "role": "Capture messy demand and true objective.",
+      "nodes": ["intake"]
+    },
+    {
+      "id": "L2",
+      "name": "Context, Memory & Workspace",
+      "role": "Load memory, skills, rules, pruning policy, and workspace boundaries.",
+      "nodes": ["context_memory"]
+    },
+    {
+      "id": "L3",
+      "name": "Evidence & Data",
+      "role": "Search, normalize, and model facts, data, and artifacts.",
+      "nodes": ["radar", "evidence_normalize", "data_modeling"]
+    },
+    {
+      "id": "L4",
+      "name": "Orchestration & Learning",
+      "role": "Plan, route, delegate, and teach unfamiliar concepts.",
+      "nodes": ["planning", "routing", "learning"]
+    },
+    {
+      "id": "L5",
+      "name": "Execution & Assurance",
+      "role": "Act, test, score, and gate the work.",
+      "nodes": ["action", "test", "score", "check"]
+    },
+    {
+      "id": "L6",
+      "name": "Delivery & Evolution",
+      "role": "Hand off outputs and turn validated learning into reusable assets.",
+      "nodes": ["handoff", "sediment"]
+    }
+  ],
+  "core_nodes": [
+    {
+      "id": "intake",
+      "upgrade": ["intent", "stakes", "deadline", "source_channel", "verbatim_snapshot", "ambiguity_list"]
+    },
+    {
+      "id": "context_memory",
+      "upgrade": ["skill_loading", "session_pruning", "workspace_isolation", "token_budget", "memory_search", "policy_context"]
+    },
+    {
+      "id": "radar",
+      "upgrade": ["source_freshness", "breadth_target", "confidence_level", "contradiction_capture", "source_quality_score"]
+    },
+    {
+      "id": "evidence_normalize",
+      "upgrade": ["conflict_resolution", "schema_mapping", "pattern_extraction", "reusable_record_format"]
+    },
+    {
+      "id": "data_modeling",
+      "upgrade": ["artifact_registry", "database_schema", "base_tables", "variable_store", "eval_dataset", "trace_store"]
+    },
+    {
+      "id": "planning",
+      "upgrade": ["live_plan_state", "dependencies", "stop_conditions", "checkpoint_points", "replan_policy"]
+    },
+    {
+      "id": "routing",
+      "upgrade": ["branch_routing", "parallel_routing", "subagent_team_routing", "a2a_handoff_routing", "human_review_routing"]
+    },
+    {
+      "id": "learning",
+      "upgrade": ["explanation", "examples", "debate", "quiz", "simulation", "project_transfer"]
+    },
+    {
+      "id": "action",
+      "upgrade": ["sandbox_scope", "filesystem_scope", "command_permissions", "rollback_path", "evidence_capture"]
+    },
+    {
+      "id": "test",
+      "upgrade": ["deterministic_tests", "screenshots", "traces", "eval_datasets", "golden_cases"]
+    },
+    {
+      "id": "score",
+      "upgrade": ["code_based_grader", "model_based_grader", "human_grader", "business_score", "risk_score", "repeatability_score"]
+    },
+    {
+      "id": "check",
+      "upgrade": ["policy_gate", "permission_gate", "regression_gate", "safety_gate", "artifact_gate", "publish_gate"]
+    },
+    {
+      "id": "handoff",
+      "upgrade": ["receiver", "artifact_bundle", "state_summary", "next_action", "protocol", "acceptance_criteria"]
+    },
+    {
+      "id": "sediment",
+      "upgrade": ["skill_creation", "rule_creation", "eval_case_creation", "source_ref", "next_use_case", "owner", "review_date"]
+    }
+  ],
+  "cross_cutting_rails": [
+    {
+      "id": "observe_trace",
+      "required_fields": ["trace_id", "span_id", "tool_calls", "token_cost", "latency", "failure_events", "artifact_events"]
+    },
+    {
+      "id": "policy_permission",
+      "required_fields": ["allowed_tools", "identity", "secret_boundary", "workspace_boundary", "approval_required", "rollback_path"]
+    },
+    {
+      "id": "artifact_registry",
+      "required_fields": ["artifact_id", "artifact_type", "schema", "version", "owner", "source_refs", "validation_status"]
+    },
+    {
+      "id": "human_team",
+      "required_fields": ["reviewer", "approval_gate", "escalation_path", "handoff_target", "decision_owner"]
+    }
+  ],
+  "optional_compound_nodes": [
+    {
+      "id": "deploy_publish",
+      "composed_from": ["action", "check", "handoff"],
+      "use_when": "Publishing to GitHub, ClawHub, app stores, public docs, or production releases."
+    },
+    {
+      "id": "monitor_ops",
+      "composed_from": ["observe_trace", "test", "score", "check", "sediment"],
+      "use_when": "Tracking production behavior, regressions, cost, user feedback, and failures."
+    }
+  ],
+  "primary_design_rule": "When a new framework concept appears, classify it as a core node, a cross-cutting rail, or a compound pattern before changing the taxonomy."
+}

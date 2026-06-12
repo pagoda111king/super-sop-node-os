@@ -1,8 +1,14 @@
 # Architecture · 6 Layers / 14 Node Classes
 
+Latest system audit:
+
+- [NODE_SYSTEM_AUDIT_2026-06-12.md](NODE_SYSTEM_AUDIT_2026-06-12.md)
+
 Super SOP Node OS turns work into node runs.
 
 ## 6 Layers
+
+### Current v1.0 Layers
 
 | Layer | Role | Nodes |
 |---|---|---|
@@ -12,6 +18,29 @@ Super SOP Node OS turns work into node runs.
 | Action | Make real changes through tools | Action |
 | Validation & Governance | Test, score, gate, control risk | Test, Score, Check |
 | Sediment Assets | Deliver and write back reusable assets | Handoff, Sediment |
+
+### Recommended v1.1 Layers
+
+| Layer | Role | Nodes |
+|---|---|---|
+| Signal & Intent | Capture messy demand and true objective | Intake |
+| Context, Memory & Workspace | Load memory, skills, rules, pruning policy, and workspace boundaries | Context / Memory |
+| Evidence & Data | Search, normalize, and model facts/artifacts | Radar, Evidence Normalize, Data Modeling |
+| Orchestration & Learning | Plan, route, delegate, and teach unfamiliar concepts | Planning, Routing, Learning |
+| Execution & Assurance | Act, test, score, and gate the work | Action, Test, Score, Check |
+| Delivery & Evolution | Hand off outputs and turn learning into reusable assets | Handoff, Sediment |
+
+The public memory hook remains:
+
+```text
+6 layers, 14 nodes
+```
+
+But the professional explanation becomes:
+
+```text
+signal -> context -> evidence/data -> orchestration -> execution/assurance -> delivery/evolution
+```
 
 ## 14 Node Classes
 
@@ -60,3 +89,13 @@ Sediment
 
 `Rule Learning` is implemented under the Sediment family but kept as its own P0 practice because it updates rollback-safe rules from test/score/check feedback.
 
+## Cross-Cutting Rails
+
+The 2026-06-12 audit recommends four rails that every serious node run should carry:
+
+| Rail | Purpose |
+|---|---|
+| Observe / Trace | Record trace IDs, tool calls, failures, latency, cost, and artifact events. |
+| Policy / Permission | Track allowed tools, identity, secrets, sandbox, approval, and rollback. |
+| Artifact Registry | Give durable outputs IDs, schemas, versions, owners, source refs, and validation status. |
+| Human / Team | Define reviewer, approval gate, escalation path, handoff target, and decision owner. |

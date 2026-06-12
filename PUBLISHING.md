@@ -73,8 +73,8 @@ clawhub whoami
 clawhub publish /absolute/path/to/super-sop-node-os/codex-skill/super-sop-node-os \
   --slug super-sop-node-os \
   --name "Super SOP Node OS: Node Era Protocol" \
-  --version 1.0.2 \
-  --changelog "Add architecture reference radar and company pattern mapping." \
+  --version 1.0.3 \
+  --changelog "Add project-by-project node system audit and v1.1 rails recommendation." \
   --tags latest,agent-workflow,sop,codex,claude-code,openclaw
 ```
 

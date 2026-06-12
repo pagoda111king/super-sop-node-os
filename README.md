@@ -256,6 +256,7 @@ The initial ClawHub publish receipt is recorded in `PUBLISH_RECEIPT.md`.
 │   └── ROADMAP.md
 ├── schemas/
 │   ├── node-taxonomy.v1.json
+│   ├── node-taxonomy.v1.1-proposal.json
 │   ├── node-visual-system.v1.json
 │   └── node-memory-symbols.v1.json
 ├── visuals/
@@ -302,6 +303,12 @@ The goal is not to copy any one framework. The goal is to make their best patter
 
 The latest tracked architecture radar is in `docs/REFERENCE_RADAR_2026-06-12.md`.
 
+The latest system audit is in `docs/NODE_SYSTEM_AUDIT_2026-06-12.md`. Its current recommendation is:
+
+```text
+6 rebased layers + 14 core nodes + 4 cross-cutting rails + 2 optional compound nodes
+```
+
 ## Safety And Quality Rules
 
 - Radar must provide traceable sources.
@@ -314,7 +321,7 @@ The latest tracked architecture radar is in `docs/REFERENCE_RADAR_2026-06-12.md`
 
 ## Status
 
-Current release: `1.0.2`
+Current release: `1.0.3`
 
 This is an early public package. The core protocol, loader files, skill package, schemas, and scaffold script are ready. Future work will add richer adapters, a visual run dashboard, and more automated evaluation.
 
