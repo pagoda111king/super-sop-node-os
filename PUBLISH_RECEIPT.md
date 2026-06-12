@@ -11,7 +11,7 @@
 
 - Slug: `super-sop-node-os`
 - Owner: `pagoda111king`
-- Latest version: `1.0.1`
+- Latest version: `1.0.2`
 - License on ClawHub: `MIT-0`
 - Moderation verdict: `clean`
 - Search check: `clawhub search super-sop-node-os --limit 5`

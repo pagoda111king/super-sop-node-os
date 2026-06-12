@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2 - 2026-06-12
+
+- Added external architecture reference radar.
+- Mapped latest public agent framework lessons into the 14-node system.
+- Added company-pattern references to the installable skill.
+
 ## 1.0.1 - 2026-06-12
 
 - Added Node Era positioning.

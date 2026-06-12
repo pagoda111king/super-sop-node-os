@@ -1,7 +1,7 @@
 ---
 name: super-sop-node-os
 description: Nodeize complex AI work for the node era: a 6-layer, 14-node SOP system with Radar, Normalize, Test, Score, Check, Handoff, and Sediment loops.
-version: 1.0.1
+version: 1.0.2
 metadata:
   openclaw:
     homepage: https://github.com/pagoda111king/super-sop-node-os
@@ -71,6 +71,7 @@ Read only what is needed:
 - `references/architecture.md` for 6-layer / 14-node architecture.
 - `references/node-protocol.md` for node artifact format.
 - `references/memory-symbols.md` for colors, runes, and memory palace symbols.
+- `references/company-patterns.md` for external framework lessons mapped into nodes.
 
 ## Quality Gate
 

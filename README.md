@@ -231,8 +231,8 @@ Publish command:
 clawhub publish /absolute/path/to/super-sop-node-os/codex-skill/super-sop-node-os \
   --slug super-sop-node-os \
   --name "Super SOP Node OS: Node Era Protocol" \
-  --version 1.0.1 \
-  --changelog "Add Node Era positioning and marketplace introduction." \
+  --version 1.0.2 \
+  --changelog "Add architecture reference radar and company pattern mapping." \
   --tags latest,agent-workflow,sop,codex,claude-code,openclaw
 ```
 
@@ -296,8 +296,11 @@ This project synthesizes practical ideas from:
 - LangGraph: durable graph execution, persistence, human-in-the-loop.
 - OpenClaw / ClawHub: portable text-based skills and skill registries.
 - OpenMAIC: concept learning before review or knowledge battle.
+- Hermes Agent, Feishu/Aily, Coze Studio/Loop, DeerFlow, and AgentScope: persistent memory, enterprise work surfaces, visual workflow nodes, sandboxed long-horizon execution, and production agent lifecycle.
 
 The goal is not to copy any one framework. The goal is to make their best patterns operational for repeatable real work.
+
+The latest tracked architecture radar is in `docs/REFERENCE_RADAR_2026-06-12.md`.
 
 ## Safety And Quality Rules
 
@@ -311,7 +314,7 @@ The goal is not to copy any one framework. The goal is to make their best patter
 
 ## Status
 
-Current release: `1.0.1`
+Current release: `1.0.2`
 
 This is an early public package. The core protocol, loader files, skill package, schemas, and scaffold script are ready. Future work will add richer adapters, a visual run dashboard, and more automated evaluation.
 
