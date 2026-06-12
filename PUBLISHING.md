@@ -61,9 +61,16 @@ Then restart or reload Codex skills.
 
 ClawHub publishes a skill folder that contains `SKILL.md`.
 
+Use ClawHub CLI `0.21.0` or newer:
+
+```bash
+pnpm add -g clawhub@latest
+clawhub --cli-version
+```
+
 ```bash
 clawhub whoami
-clawhub publish codex-skill/super-sop-node-os \
+clawhub publish /absolute/path/to/super-sop-node-os/codex-skill/super-sop-node-os \
   --slug super-sop-node-os \
   --name "Super SOP Node OS" \
   --version 1.0.0 \
@@ -75,6 +82,12 @@ Marketplace copy lives in:
 
 ```text
 CLAWHUB_LISTING.md
+```
+
+The first successful publish receipt lives in:
+
+```text
+PUBLISH_RECEIPT.md
 ```
 
 ## Optional GitHub Action

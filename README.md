@@ -214,7 +214,7 @@ codex-skill/super-sop-node-os
 Publish command:
 
 ```bash
-clawhub publish codex-skill/super-sop-node-os \
+clawhub publish /absolute/path/to/super-sop-node-os/codex-skill/super-sop-node-os \
   --slug super-sop-node-os \
   --name "Super SOP Node OS" \
   --version 1.0.0 \
@@ -223,6 +223,8 @@ clawhub publish codex-skill/super-sop-node-os \
 ```
 
 See `CLAWHUB_LISTING.md` for the marketplace copy.
+
+The initial ClawHub publish receipt is recorded in `PUBLISH_RECEIPT.md`.
 
 ## Repository Layout
 
