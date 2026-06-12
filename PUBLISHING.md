@@ -76,3 +76,7 @@ Marketplace copy lives in:
 ```text
 CLAWHUB_LISTING.md
 ```
+
+## Optional GitHub Action
+
+ClawHub supports GitHub Actions publishing, but pushing workflow files requires a GitHub token with the `workflow` scope. This repository publishes with the CLI by default.
