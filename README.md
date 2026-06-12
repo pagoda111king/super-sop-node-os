@@ -1,5 +1,7 @@
 # Super SOP Node OS · Node Era Protocol
 
+中文版本：[README.zh-CN.md](README.zh-CN.md)
+
 Turn complex agent work into a reusable 6-layer, 14-node operating system for Codex, Claude Code, OpenClaw, and other coding agents.
 
 > Chinese name: 超级 SOP 工厂节点系统
